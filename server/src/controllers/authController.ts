@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
-import bcrypt from 'bcrypt';
+import bcrypt from "bcryptjs";
+
 import { signJwt } from '../utils/jwt.js';
 
 const prisma = new PrismaClient();

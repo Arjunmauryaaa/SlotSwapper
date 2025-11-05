@@ -3,18 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
- "scripts": {
-  "dev": "ts-node-dev --respawn --transpile-only --esm ./src/index.ts",
-  "build": "tsc -p .",
-  "start": "node dist/index.js",
-  "postinstall": "npm rebuild prisma && npx prisma generate --schema=src/prisma/schema.prisma",
-  "prisma:generate": "npx prisma generate --schema=src/prisma/schema.prisma",
-  "prisma:migrate": "npx prisma migrate dev --schema=src/prisma/schema.prisma"
-}
-,
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --esm ./src/index.ts",
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "postinstall": "npm rebuild prisma && npx prisma generate --schema=src/prisma/schema.prisma",
+    "prisma:generate": "npx prisma generate --schema=src/prisma/schema.prisma",
+    "prisma:migrate": "npx prisma migrate dev --schema=src/prisma/schema.prisma"
+  },
   "dependencies": {
     "@prisma/client": "^5.19.1",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
