@@ -1,0 +1,15 @@
+import { Router } from 'express';
+import { authMiddleware } from '../middleware/authMiddleware.js';
+import { listEvents, createEvent, updateEvent, deleteEvent, getSwappableSlots } from '../controllers/eventsController.js';
+
+const router = Router();
+
+router.get('/events', authMiddleware, listEvents);
+router.post('/events', authMiddleware, createEvent);
+router.put('/events/:id', authMiddleware, updateEvent);
+router.delete('/events/:id', authMiddleware, deleteEvent);
+
+router.get('/swappable-slots', authMiddleware, getSwappableSlots);
+
+export default router;
+
