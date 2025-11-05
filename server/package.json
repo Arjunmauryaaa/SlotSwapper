@@ -2,10 +2,12 @@
   "name": "slotswapper-server",
   "version": "1.0.0",
   "private": true,
-  "type": "module","scripts": {
+  "type": "module",
+ "scripts": {
   "dev": "ts-node-dev --respawn --transpile-only --esm ./src/index.ts",
   "build": "tsc -p .",
   "start": "node dist/index.js",
+  "postinstall": "npm rebuild prisma && npx prisma generate --schema=src/prisma/schema.prisma",
   "prisma:generate": "npx prisma generate --schema=src/prisma/schema.prisma",
   "prisma:migrate": "npx prisma migrate dev --schema=src/prisma/schema.prisma"
 }
