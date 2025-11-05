@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: slotswapper-server
+    env: node
+    plan: free
+    rootDir: server
+    buildCommand: |-
+      npm install
+      npx prisma generate
+      npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 4000
+      # Set these in the Render dashboard after creating the service
+      # - key: DATABASE_URL
+      #   value: file:./src/prisma/dev.db
+      # - key: JWT_SECRET
+      #   generateValue: true
+
